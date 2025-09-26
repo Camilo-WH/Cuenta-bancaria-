@@ -1,19 +1,87 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         //Menu
-        menu();
+        menuPrincipal();
+
+
+
+
+    }
+    public static void menuPrincipal(){
+
+        int a,b,c,d,e;
+        boolean x=true;
+        Scanner teclado = new Scanner(System.in);
+        List<cuentaBancaria> lista = new ArrayList();
+        do {
+            System.out.println("ELIJA UNA OPCION");
+            System.out.println("1. Crear cuenta");
+            System.out.println("2. Mostrar cuenta");
+            System.out.println("3. Eliminar cuenta");
+            System.out.println("4. Cuenta bancaria");
+            System.out.println("5. Salir");
+            e=teclado.nextInt();
+
+
+            switch (e) {
+                case 1:
+                System.out.println("Ingrese el numero de cuenta");
+                a = teclado.nextInt();
+                System.out.println("Ingrese su numero de cedula");
+                b = teclado.nextInt();
+                System.out.println("Ingrese el valor de dinero que desea ingresar");
+                c = teclado.nextInt();
+                lista.add(new cuentaBancaria(a, b, c));
+                break;
+                case 2:
+                    for (cuentaBancaria p:lista){
+                        System.out.println(p);
+                    }
+                break;
+                case 3:
+                        System.out.println("Ingrese el numero de cuenta que desea eliminar");
+                        d = teclado.nextInt();
+                    for (cuentaBancaria p : lista) {
+                        System.out.println(p);
+                        if (p.getNumeroCuenta() == d) {
+                            lista.remove(p);
+                        }
+                    }
+                break;
+
+                case 4:
+                    System.out.println("Ingrese el numero de cuenta que desea eliminar");
+                    d = teclado.nextInt();
+                    for (cuentaBancaria p : lista) {
+                        System.out.println(p);
+                        if (p.getNumeroCuenta() == d) {
+                            submenu(p);
+                        }
+                    }
+                    break;
+
+                case 5:
+                    x=false;
+                    break;
+                default:
+                    System.out.println("Opcion invalida ");
+
+            }
+
+        }while (x);
+
+
 
     }
 
 
 
-    public static void menu(){
-        cuentaBancaria b1= new cuentaBancaria();
-        b1.setNumeroCuenta(00000000);
-        b1.setCcCliente(00000000);
-        b1.setSaldoActual(0);
+
+    public static void submenu(cuentaBancaria b1){
 
 
         Scanner teclado = new Scanner(System.in);
@@ -72,5 +140,9 @@ public class Main {
             }
         }while(b);
 
+
+
+
     }
+
     }

@@ -1,4 +1,6 @@
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class cuentaBancaria {
@@ -101,6 +103,10 @@ public class cuentaBancaria {
         return this.saldoActual-=(saldoActual/100*20);
 
     }
+
+
+
+
 
 
 }
